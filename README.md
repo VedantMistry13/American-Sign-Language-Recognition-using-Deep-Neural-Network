@@ -1,12 +1,5 @@
 # American Sign Language Recognition using Deep Neural Network (Transfer Learning Approach)
 
-## TABLE OF CONTENTS
-- [Introduction](#1-introduction)
-- [Approach](#2-approach)
-- [Results](#3-results)
-- [Running the applicaiton](#4-running-the-application)
-- [Outputs](#5-outputs)
-
 ## 1 - Introduction
 American Sign Language (ASL) is a complete, natural language that is expressed using the movement of hands and face. ASL provides the deaf community a way to interact within the community itself as well as to the outside world. However, not everyone knows about signs and gestures used in the sign language. With the advent of [Artificial Neural Networks](https://medium.com/technology-invention-and-more/everything-you-need-to-know-about-artificial-neural-networks-57fac18245a1) and [Deep Learning](https://www.mathworks.com/discovery/deep-learning.html), it is now possible to build a system that can recognize objects or even objects of various categories (like red vs green apple). Utilizing this, here we have an application that uses a deep learning model trained on the ASL Dataset to predict the sign from the sign language given an input image or frame from a video feed. You can learn more about the American Sign Language over [here](https://www.nidcd.nih.gov/health/american-sign-language) [National Institute on Deafness and Other Communication Disorders (NIDCD) website].
 
@@ -27,6 +20,8 @@ The network uses Google's [Inception v3](https://arxiv.org/pdf/1512.00567.pdf) a
 
 ### 2.4 - Using the model for the application
 After the model is trained, it is then loaded in the application. [OpenCV](https://opencv.org/) is used to capture frames from a video feed. The application provides an area (inside the green rectangle) where the signs are to be presented to be detected or recognized. The signs are then captured in frames, the frame is processed for the model and then fed to the model. Based on the sign made, the model predicts the sign captured. If the model predicts a sign with a confidence greater than `20%`, the prediction is presented to the user (`LOW` confidence sign predictions are predictions above `20%` to `50%` confidence which are presented with a `Maybe [sign] - [confidence]` output and `HIGH` confidence sign predictions are above `50%` confidence and presented with a `[sign] - [confidence]` output where `[sign]` is the model predicted sign and `[confidence]` is the model's confidence for that prediction). Else, the model displays `nothing` as output.
+
+**Note: You can download the notebook (American_Sign_Language_Recognition.ipynb) or the PDF version of the notebook (American Sign Language Recognition.ipynb - Colaboratory.pdf) to have a better understanding of the implementation.**
 
 ## 3 - Results
 For training, [Categorical Crossentropy](https://ml-cheatsheet.readthedocs.io/en/latest/loss_functions.html#cross-entropy) was used to measure the loss along with [Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent) optimizer (with `learning rate` of `0.0001` and `momentum` of `0.9`) to optimize our model. The model is trained for `24` epochs. The results are displayed below:
